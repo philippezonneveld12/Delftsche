@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Delftsche</title>
+<meta name="description" content="Delftsche — een nieuw kledingmerk geïnspireerd op Delfts blauw. Coming Soon.">
+<meta property="og:title" content="Delftsche">
+<meta property="og:description" content="Delftsche — Coming Soon">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#1B3F8B">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%231B3F8B'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='18' fill='%23F7F4ED' text-anchor='middle' font-style='italic'%3ED%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Italiana&family=Cormorant+Garamond:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --delft-blue: #1B3F8B;
+    --delft-blue-light: #2A55A5;
+    --delft-blue-deep: #0E2456;
+    --white: #F4EFE3;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html, body {
+    height: 100%;
+    overflow: hidden;
+  }
+
+  body {
+    background: var(--delft-blue);
+    background-image:
+      radial-gradient(ellipse at 50% 40%, var(--delft-blue-light) 0%, var(--delft-blue) 45%, var(--delft-blue-deep) 100%);
+    color: var(--white);
+    font-family: 'Cormorant Garamond', serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    position: relative;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Subtle film grain for depth */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.55'/%3E%3C/svg%3E");
+    opacity: 0.09;
+    mix-blend-mode: overlay;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  /* Soft vignette */
+  body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: radial-gradient(ellipse at center, transparent 50%, rgba(0,0,0,0.35) 100%);
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .container {
+    text-align: center;
+    position: relative;
+    z-index: 3;
+    padding: 0 1.5rem;
+    max-width: 100%;
+  }
+
+  .ornament {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.2rem;
+    margin: 0 auto 2.5rem;
+    opacity: 0;
+    animation: fadeInOrnament 1.8s ease 0.4s forwards;
+  }
+
+  .ornament .line {
+    width: 60px;
+    height: 1px;
+    background: var(--white);
+    opacity: 0.7;
+  }
+
+  .ornament .diamond {
+    width: 6px;
+    height: 6px;
+    background: var(--white);
+    transform: rotate(45deg);
+    opacity: 0.85;
+  }
+
+  .brand {
+    font-family: 'Italiana', serif;
+    font-size: clamp(4rem, 14vw, 11rem);
+    font-weight: 400;
+    letter-spacing: 0.04em;
+    line-height: 0.95;
+    color: var(--white);
+    opacity: 0;
+    transform: translateY(28px);
+    animation: brandReveal 2.2s cubic-bezier(0.22, 0.61, 0.36, 1) 0.7s forwards;
+  }
+
+  .ornament-bottom {
+    margin: 2.5rem auto 0;
+  }
+
+  .coming-soon {
+    margin-top: 3rem;
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-size: clamp(0.85rem, 2vw, 1.15rem);
+    letter-spacing: 0.55em;
+    text-indent: 0.55em; /* compensate trailing letter-spacing for centering */
+    text-transform: uppercase;
+    color: var(--white);
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity 2.5s ease, transform 2.5s ease;
+  }
+
+  .coming-soon.visible {
+    opacity: 0.9;
+    transform: translateY(0);
+  }
+
+  @keyframes fadeInOrnament {
+    to { opacity: 1; }
+  }
+
+  @keyframes brandReveal {
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Botanical corner decorations — inspired by Delftware floral motifs */
+  .botanical {
+    position: fixed;
+    width: 180px;
+    height: 180px;
+    opacity: 0;
+    animation: fadeInBotanical 2.4s ease 1.4s forwards;
+    z-index: 2;
+    pointer-events: none;
+  }
+
+  .botanical.tl { top: 24px; left: 24px; }
+  .botanical.tr { top: 24px; right: 24px; transform: scaleX(-1); }
+  .botanical.bl { bottom: 24px; left: 24px; transform: scaleY(-1); }
+  .botanical.br { bottom: 24px; right: 24px; transform: scale(-1, -1); }
+
+  @keyframes fadeInBotanical {
+    to { opacity: 0.45; }
+  }
+
+  .botanical.tr { animation-name: fadeInBotanicalFlipX; }
+  .botanical.bl { animation-name: fadeInBotanicalFlipY; }
+  .botanical.br { animation-name: fadeInBotanicalFlipBoth; }
+
+  @keyframes fadeInBotanicalFlipX {
+    to { opacity: 0.45; transform: scaleX(-1); }
+  }
+  @keyframes fadeInBotanicalFlipY {
+    to { opacity: 0.45; transform: scaleY(-1); }
+  }
+  @keyframes fadeInBotanicalFlipBoth {
+    to { opacity: 0.45; transform: scale(-1, -1); }
+  }
+
+  @media (max-width: 700px) {
+    .botanical { width: 95px; height: 95px; }
+    .botanical.tl, .botanical.tr { top: 14px; }
+    .botanical.bl, .botanical.br { bottom: 14px; }
+    .botanical.tl, .botanical.bl { left: 14px; }
+    .botanical.tr, .botanical.br { right: 14px; }
+    .ornament .line { width: 40px; }
+    .coming-soon { margin-top: 2rem; letter-spacing: 0.45em; text-indent: 0.45em; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+</style>
+</head>
+<body>
+
+<!-- Botanical corner ornaments — delicate Delft-style florals -->
+<svg class="botanical tl" viewBox="0 0 180 180" fill="none" stroke="#F4EFE3" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <!-- Main curling stem -->
+  <path d="M8 172 C 30 140, 25 110, 50 95 C 75 80, 70 55, 95 45 C 120 35, 130 18, 155 10"/>
+  <!-- Tulip flower top right -->
+  <path d="M155 10 C 150 4, 158 0, 162 4 C 166 0, 174 4, 169 10 C 174 14, 168 22, 162 18 C 156 22, 150 14, 155 10 Z"/>
+  <path d="M162 22 L 162 32"/>
+  <!-- Leaves along stem -->
+  <path d="M50 95 C 38 88, 30 95, 28 105 C 38 108, 50 102, 50 95 Z"/>
+  <path d="M50 95 C 60 88, 68 92, 70 102 C 60 104, 50 100, 50 95 Z"/>
+  <path d="M95 45 C 85 40, 78 48, 80 58 C 90 58, 98 52, 95 45 Z"/>
+  <!-- Small flower bud middle -->
+  <circle cx="72" cy="72" r="2.5"/>
+  <path d="M72 67 L 72 62 M 67 72 L 62 72 M 76 68 L 80 64 M 76 76 L 80 80"/>
+  <!-- Small berries cluster -->
+  <circle cx="118" cy="38" r="2"/>
+  <circle cx="125" cy="35" r="2"/>
+  <circle cx="122" cy="42" r="2"/>
+  <!-- Decorative dots -->
+  <circle cx="38" cy="120" r="1.2" fill="#F4EFE3"/>
+  <circle cx="60" cy="138" r="1.2" fill="#F4EFE3"/>
+  <circle cx="105" cy="62" r="1.2" fill="#F4EFE3"/>
+  <circle cx="140" cy="28" r="1.2" fill="#F4EFE3"/>
+</svg>
+
+<svg class="botanical tr" viewBox="0 0 180 180" fill="none" stroke="#F4EFE3" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <path d="M8 172 C 30 140, 25 110, 50 95 C 75 80, 70 55, 95 45 C 120 35, 130 18, 155 10"/>
+  <path d="M155 10 C 150 4, 158 0, 162 4 C 166 0, 174 4, 169 10 C 174 14, 168 22, 162 18 C 156 22, 150 14, 155 10 Z"/>
+  <path d="M162 22 L 162 32"/>
+  <path d="M50 95 C 38 88, 30 95, 28 105 C 38 108, 50 102, 50 95 Z"/>
+  <path d="M50 95 C 60 88, 68 92, 70 102 C 60 104, 50 100, 50 95 Z"/>
+  <path d="M95 45 C 85 40, 78 48, 80 58 C 90 58, 98 52, 95 45 Z"/>
+  <circle cx="72" cy="72" r="2.5"/>
+  <path d="M72 67 L 72 62 M 67 72 L 62 72 M 76 68 L 80 64 M 76 76 L 80 80"/>
+  <circle cx="118" cy="38" r="2"/>
+  <circle cx="125" cy="35" r="2"/>
+  <circle cx="122" cy="42" r="2"/>
+  <circle cx="38" cy="120" r="1.2" fill="#F4EFE3"/>
+  <circle cx="60" cy="138" r="1.2" fill="#F4EFE3"/>
+  <circle cx="105" cy="62" r="1.2" fill="#F4EFE3"/>
+  <circle cx="140" cy="28" r="1.2" fill="#F4EFE3"/>
+</svg>
+
+<svg class="botanical bl" viewBox="0 0 180 180" fill="none" stroke="#F4EFE3" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <path d="M8 172 C 30 140, 25 110, 50 95 C 75 80, 70 55, 95 45 C 120 35, 130 18, 155 10"/>
+  <path d="M155 10 C 150 4, 158 0, 162 4 C 166 0, 174 4, 169 10 C 174 14, 168 22, 162 18 C 156 22, 150 14, 155 10 Z"/>
+  <path d="M162 22 L 162 32"/>
+  <path d="M50 95 C 38 88, 30 95, 28 105 C 38 108, 50 102, 50 95 Z"/>
+  <path d="M50 95 C 60 88, 68 92, 70 102 C 60 104, 50 100, 50 95 Z"/>
+  <path d="M95 45 C 85 40, 78 48, 80 58 C 90 58, 98 52, 95 45 Z"/>
+  <circle cx="72" cy="72" r="2.5"/>
+  <path d="M72 67 L 72 62 M 67 72 L 62 72 M 76 68 L 80 64 M 76 76 L 80 80"/>
+  <circle cx="118" cy="38" r="2"/>
+  <circle cx="125" cy="35" r="2"/>
+  <circle cx="122" cy="42" r="2"/>
+  <circle cx="38" cy="120" r="1.2" fill="#F4EFE3"/>
+  <circle cx="60" cy="138" r="1.2" fill="#F4EFE3"/>
+  <circle cx="105" cy="62" r="1.2" fill="#F4EFE3"/>
+  <circle cx="140" cy="28" r="1.2" fill="#F4EFE3"/>
+</svg>
+
+<svg class="botanical br" viewBox="0 0 180 180" fill="none" stroke="#F4EFE3" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <path d="M8 172 C 30 140, 25 110, 50 95 C 75 80, 70 55, 95 45 C 120 35, 130 18, 155 10"/>
+  <path d="M155 10 C 150 4, 158 0, 162 4 C 166 0, 174 4, 169 10 C 174 14, 168 22, 162 18 C 156 22, 150 14, 155 10 Z"/>
+  <path d="M162 22 L 162 32"/>
+  <path d="M50 95 C 38 88, 30 95, 28 105 C 38 108, 50 102, 50 95 Z"/>
+  <path d="M50 95 C 60 88, 68 92, 70 102 C 60 104, 50 100, 50 95 Z"/>
+  <path d="M95 45 C 85 40, 78 48, 80 58 C 90 58, 98 52, 95 45 Z"/>
+  <circle cx="72" cy="72" r="2.5"/>
+  <path d="M72 67 L 72 62 M 67 72 L 62 72 M 76 68 L 80 64 M 76 76 L 80 80"/>
+  <circle cx="118" cy="38" r="2"/>
+  <circle cx="125" cy="35" r="2"/>
+  <circle cx="122" cy="42" r="2"/>
+  <circle cx="38" cy="120" r="1.2" fill="#F4EFE3"/>
+  <circle cx="60" cy="138" r="1.2" fill="#F4EFE3"/>
+  <circle cx="105" cy="62" r="1.2" fill="#F4EFE3"/>
+  <circle cx="140" cy="28" r="1.2" fill="#F4EFE3"/>
+</svg>
+
+<main class="container">
+  <div class="ornament">
+    <span class="line"></span>
+    <span class="diamond"></span>
+    <span class="line"></span>
+  </div>
+
+  <h1 class="brand">Delftsche</h1>
+
+  <div class="ornament ornament-bottom">
+    <span class="line"></span>
+    <span class="diamond"></span>
+    <span class="line"></span>
+  </div>
+
+  <p class="coming-soon" id="comingSoon">Coming Soon</p>
+</main>
+
+<script>
+  // Reveal "Coming Soon" after exactly 25 seconds
+  window.addEventListener('load', () => {
+    setTimeout(() => {
+      document.getElementById('comingSoon').classList.add('visible');
+    }, 25000);
+  });
+</script>
+
+</body>
+</html>
