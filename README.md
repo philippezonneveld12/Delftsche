@@ -1,39 +1,138 @@
-# Delftsche — Coming Soon
+# Delftsche — Coming Soon + SEO Journal
 
-Eenvoudige one-page coming soon site voor [delftsche.com](https://delftsche.com).
+Eenvoudige premium coming soon site voor [delftsche.com](https://delftsche.com), uitgebreid met een SEO en GEO blogstructuur zodat de website gevonden kan worden op Google en AI zoekmachines.
 
-## Wat doet 'ie?
+## Wat doet de homepage?
 
 - Diep Delfts blauw fullscreen achtergrond met subtiele gradient, vignette en filmkorrel
-- "Delftsche" in Italiana (elegante fashion-serif), wit, met dunne ornament-lijntjes erboven en eronder
-- Vier delicate botanische hoekornamenten (tulp + ranken, geïnspireerd op klassiek Delfts blauw)
-- Na **25 seconden** verschijnt "COMING SOON" smooth fade-in onder de merknaam
-- Volledig responsive, respecteert `prefers-reduced-motion`
+- "Delftsche" in Italiana, wit, met dunne ornament-lijntjes erboven en eronder
+- Vier delicate botanische hoekornamenten geïnspireerd op klassiek Delfts blauw
+- "COMING SOON" onder de merknaam
+- Subtiele link naar het Journal, zodat Google de blogpagina's kan crawlen
+- Volledig responsive en respecteert `prefers-reduced-motion`
+- SEO verbeterd met title tag, meta description, canonical, Open Graph en structured data
 
-Eén bestand, geen dependencies, geen build step. Open `index.html` in je browser om te previewen.
+## Wat zit erin?
+
+```text
+/
+├── index.html
+├── robots.txt
+├── sitemap.xml
+├── llms.txt
+├── README.md
+├── assets/
+│   └── style.css
+└── blog/
+    ├── index.html
+    ├── amsterdam-clothing.html
+    ├── kleding-amsterdam.html
+    ├── dutch-clothing-brands.html
+    ├── delfts-blauw-kleding.html
+    └── overige SEO blogs
+```
+
+## SEO en GEO doel
+
+De blogstructuur is gemaakt om Delftsche vindbaar te maken op onder andere:
+
+- `amsterdam clothing`
+- `clothing amsterdam`
+- `kleding amsterdam`
+- `Nederlandse kledingmerken`
+- `Hollandse kledingmerken`
+- `Dutch clothing brands`
+- `Delfts blauw kleding`
+- `Delft blue clothing`
+- `sustainable fashion Amsterdam`
+- `cadeau uit Amsterdam`
+
+Elke blogpagina bevat:
+- eigen title tag
+- meta description
+- canonical URL
+- Open Graph tags
+- Article schema
+- FAQ schema
+- interne links naar gerelateerde artikelen
 
 ## Online zetten
 
-### Optie A — GitHub Pages (gratis, simpel)
+### Optie A — GitHub Pages
 
-1. Maak een nieuwe repo aan: `delftsche-coming-soon` (of `delftsche.github.io` als je dat account hebt)
-2. Upload `index.html` naar de root van de repo
-3. Repo → **Settings** → **Pages** → Source: `main` branch, folder `/ (root)` → **Save**
-4. Na ~1 minuut staat 'ie op `https://<jouw-username>.github.io/delftsche-coming-soon/`
-5. Custom domein: voeg een `CNAME` bestand toe met inhoud `delftsche.com`, en zet bij je DNS-provider:
-   - `A` records voor `delftsche.com` naar `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`
-   - `CNAME` voor `www.delftsche.com` naar `<jouw-username>.github.io`
+1. Maak een nieuwe repo aan, bijvoorbeeld `delftsche`
+2. Upload alle bestanden en folders uit deze map naar de root van de repo
+3. Repo → **Settings** → **Pages**
+4. Source: `main` branch
+5. Folder: `/ (root)`
+6. Klik **Save**
+7. Custom domein: voeg een `CNAME` bestand toe met inhoud:
 
-### Optie B — Vercel (sneller, je gebruikt 'm al)
+```text
+delftsche.com
+```
 
-1. Push de repo naar GitHub
-2. Op vercel.com → **New Project** → importeer de repo → **Deploy** (geen config nodig)
-3. **Settings** → **Domains** → voeg `delftsche.com` en `www.delftsche.com` toe
-4. Volg de DNS-instructies die Vercel geeft
+8. Zet bij je DNS provider:
+
+```text
+A     @     185.199.108.153
+A     @     185.199.109.153
+A     @     185.199.110.153
+A     @     185.199.111.153
+CNAME www   <jouw-username>.github.io
+```
+
+### Optie B — Vercel
+
+1. Push deze folder naar GitHub
+2. Ga naar Vercel
+3. Klik **New Project**
+4. Importeer de repo
+5. Deploy zonder extra build settings
+6. Ga naar **Settings** → **Domains**
+7. Voeg `delftsche.com` en `www.delftsche.com` toe
+8. Volg de DNS instructies van Vercel
+
+## Na livegang
+
+Controleer deze URL's:
+
+- `https://delftsche.com/`
+- `https://delftsche.com/blog/`
+- `https://delftsche.com/sitemap.xml`
+- `https://delftsche.com/robots.txt`
+- `https://delftsche.com/llms.txt`
+
+Daarna:
+
+1. Open Google Search Console
+2. Voeg `delftsche.com` toe als property
+3. Dien deze sitemap in:
+
+```text
+https://delftsche.com/sitemap.xml
+```
+
+4. Vraag indexatie aan voor:
+   - homepage
+   - `/blog/`
+   - `/blog/amsterdam-clothing.html`
+   - `/blog/kleding-amsterdam.html`
+   - `/blog/delfts-blauw-kleding.html`
+   - `/blog/dutch-clothing-brands.html`
 
 ## Aanpassen
 
-- **Timing wijzigen**: zoek `25000` onderin het `<script>` blok (milliseconden)
-- **Kleuren**: bovenin het `<style>` blok bij `:root` — `--delft-blue`, `--white` etc.
-- **Tekst "Coming Soon"**: zoek `<p class="coming-soon" id="comingSoon">Coming Soon</p>`
-- **Botanische ornamenten verbergen op mobiel**: voeg `display: none` toe aan `.botanical` in de mobile media query
+- **Homepage tekst aanpassen**: open `index.html`
+- **Blog styling aanpassen**: open `assets/style.css`
+- **Blog teksten aanpassen**: open de losse `.html` bestanden in `/blog/`
+- **Sitemap aanpassen**: open `sitemap.xml`
+- **AI context aanpassen**: open `llms.txt`
+
+## Belangrijk
+
+Laat de `/blog/` folder online staan. De homepage mag eruitzien als een premium coming soon pagina, maar de blogfolder zorgt ervoor dat Google en AI zoekmachines Delftsche inhoudelijk kunnen begrijpen.
+
+De kernpositie van Delftsche:
+
+> Hollands kledingmerk geïnspireerd op Delfts blauw. Witte essentials met botanische details.

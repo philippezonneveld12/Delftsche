@@ -3,16 +3,54 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Delftsche</title>
-<meta name="description" content="Delftsche — een nieuw kledingmerk geïnspireerd op Delfts blauw. Coming Soon.">
-<meta property="og:title" content="Delftsche">
-<meta property="og:description" content="Delftsche — Coming Soon">
+
+<title>Delftsche | Hollands kledingmerk geïnspireerd op Delfts blauw</title>
+<meta name="description" content="Delftsche is een Hollands kledingmerk geïnspireerd op Delfts blauw. Witte essentials met botanische details. Ontdek binnenkort Amsterdam clothing met Nederlandse signatuur.">
+<meta name="keywords" content="Delftsche, delfts blauw kleding, kleding Amsterdam, Amsterdam clothing, Hollands kledingmerk, Nederlandse kledingmerken, Dutch clothing brand">
+<meta name="author" content="Delftsche">
+<link rel="canonical" href="https://delftsche.com/">
+
+<meta property="og:title" content="Delftsche | Hollands kledingmerk geïnspireerd op Delfts blauw">
+<meta property="og:description" content="Witte essentials met Delfts blauwe botanische details. Een nieuw Hollands kledingmerk met Amsterdamse rust en Nederlandse signatuur.">
 <meta property="og:type" content="website">
+<meta property="og:url" content="https://delftsche.com/">
+<meta property="og:site_name" content="Delftsche">
+<meta property="og:locale" content="nl_NL">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Delftsche | Dutch clothing inspired by Delft blue">
+<meta name="twitter:description" content="White essentials with Delft blue botanical details. Coming soon.">
+
 <meta name="theme-color" content="#1B3F8B">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%231B3F8B'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='18' fill='%23F7F4ED' text-anchor='middle' font-style='italic'%3ED%3C/text%3E%3C/svg%3E">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Italiana&family=Cormorant+Garamond:wght@300;400&display=swap" rel="stylesheet">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ClothingStore",
+  "name": "Delftsche",
+  "url": "https://delftsche.com/",
+  "description": "Delftsche is een Hollands kledingmerk geïnspireerd op Delfts blauw. Witte essentials met botanische details.",
+  "brand": {
+    "@type": "Brand",
+    "name": "Delftsche"
+  },
+  "sameAs": [],
+  "knowsAbout": [
+    "Amsterdam clothing",
+    "kleding Amsterdam",
+    "Delfts blauw kleding",
+    "Dutch clothing brands",
+    "Nederlandse kledingmerken",
+    "Hollandse kledingmerken"
+  ]
+}
+</script>
+
 <style>
   :root {
     --delft-blue: #1B3F8B;
@@ -24,8 +62,7 @@
   * { margin: 0; padding: 0; box-sizing: border-box; }
 
   html, body {
-    height: 100%;
-    overflow: hidden;
+    min-height: 100%;
   }
 
   body {
@@ -34,16 +71,12 @@
       radial-gradient(ellipse at 50% 40%, var(--delft-blue-light) 0%, var(--delft-blue) 45%, var(--delft-blue-deep) 100%);
     color: var(--white);
     font-family: 'Cormorant Garamond', serif;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     min-height: 100vh;
     position: relative;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
 
-  /* Subtle film grain for depth */
   body::before {
     content: '';
     position: fixed;
@@ -55,7 +88,6 @@
     z-index: 1;
   }
 
-  /* Soft vignette */
   body::after {
     content: '';
     position: fixed;
@@ -63,6 +95,15 @@
     background: radial-gradient(ellipse at center, transparent 50%, rgba(0,0,0,0.35) 100%);
     pointer-events: none;
     z-index: 1;
+  }
+
+  .screen {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
   }
 
   .container {
@@ -110,27 +151,46 @@
     animation: brandReveal 2.2s cubic-bezier(0.22, 0.61, 0.36, 1) 0.7s forwards;
   }
 
+  .seo-intro {
+    max-width: 620px;
+    margin: 2rem auto 0;
+    font-size: clamp(1.05rem, 2vw, 1.35rem);
+    line-height: 1.55;
+    opacity: 0;
+    transform: translateY(14px);
+    animation: softReveal 2.4s ease 1.4s forwards;
+  }
+
   .ornament-bottom {
     margin: 2.5rem auto 0;
   }
 
   .coming-soon {
-    margin-top: 3rem;
+    margin-top: 2.2rem;
     font-family: 'Cormorant Garamond', serif;
     font-weight: 300;
     font-size: clamp(0.85rem, 2vw, 1.15rem);
     letter-spacing: 0.55em;
-    text-indent: 0.55em; /* compensate trailing letter-spacing for centering */
+    text-indent: 0.55em;
     text-transform: uppercase;
     color: var(--white);
-    opacity: 0;
-    transform: translateY(12px);
-    transition: opacity 2.5s ease, transform 2.5s ease;
-  }
-
-  .coming-soon.visible {
     opacity: 0.9;
     transform: translateY(0);
+  }
+
+  .journal-link {
+    display: inline-block;
+    margin-top: 1.35rem;
+    color: var(--white);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(244,239,227,.65);
+    letter-spacing: .08em;
+    font-size: 1rem;
+    opacity: .88;
+  }
+
+  .journal-link:hover {
+    opacity: 1;
   }
 
   @keyframes fadeInOrnament {
@@ -141,7 +201,10 @@
     to { opacity: 1; transform: translateY(0); }
   }
 
-  /* Botanical corner decorations — inspired by Delftware floral motifs */
+  @keyframes softReveal {
+    to { opacity: .92; transform: translateY(0); }
+  }
+
   .botanical {
     position: fixed;
     width: 180px;
@@ -175,6 +238,33 @@
     to { opacity: 0.45; transform: scale(-1, -1); }
   }
 
+  .crawl-content {
+    position: relative;
+    z-index: 3;
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 0 1.5rem 3rem;
+    text-align: center;
+    color: rgba(244,239,227,.82);
+  }
+
+  .crawl-content h2 {
+    font-family: 'Italiana', serif;
+    font-weight: 400;
+    font-size: clamp(2rem, 5vw, 3.6rem);
+    margin-bottom: 1rem;
+  }
+
+  .crawl-content p {
+    font-size: 1.16rem;
+    line-height: 1.7;
+    margin: 0 auto 1rem;
+  }
+
+  .crawl-content a {
+    color: var(--white);
+  }
+
   @media (max-width: 700px) {
     .botanical { width: 95px; height: 95px; }
     .botanical.tl, .botanical.tr { top: 14px; }
@@ -182,7 +272,8 @@
     .botanical.tl, .botanical.bl { left: 14px; }
     .botanical.tr, .botanical.br { right: 14px; }
     .ornament .line { width: 40px; }
-    .coming-soon { margin-top: 2rem; letter-spacing: 0.45em; text-indent: 0.45em; }
+    .coming-soon { margin-top: 1.6rem; letter-spacing: 0.45em; text-indent: 0.45em; }
+    .seo-intro { max-width: 92%; }
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -195,111 +286,86 @@
 </head>
 <body>
 
-<!-- Botanical corner ornaments — delicate Delft-style florals -->
-<svg class="botanical tl" viewBox="0 0 180 180" fill="none" stroke="#F4EFE3" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-  <!-- Main curling stem -->
-  <path d="M8 172 C 30 140, 25 110, 50 95 C 75 80, 70 55, 95 45 C 120 35, 130 18, 155 10"/>
-  <!-- Tulip flower top right -->
-  <path d="M155 10 C 150 4, 158 0, 162 4 C 166 0, 174 4, 169 10 C 174 14, 168 22, 162 18 C 156 22, 150 14, 155 10 Z"/>
-  <path d="M162 22 L 162 32"/>
-  <!-- Leaves along stem -->
-  <path d="M50 95 C 38 88, 30 95, 28 105 C 38 108, 50 102, 50 95 Z"/>
-  <path d="M50 95 C 60 88, 68 92, 70 102 C 60 104, 50 100, 50 95 Z"/>
-  <path d="M95 45 C 85 40, 78 48, 80 58 C 90 58, 98 52, 95 45 Z"/>
-  <!-- Small flower bud middle -->
-  <circle cx="72" cy="72" r="2.5"/>
-  <path d="M72 67 L 72 62 M 67 72 L 62 72 M 76 68 L 80 64 M 76 76 L 80 80"/>
-  <!-- Small berries cluster -->
-  <circle cx="118" cy="38" r="2"/>
-  <circle cx="125" cy="35" r="2"/>
-  <circle cx="122" cy="42" r="2"/>
-  <!-- Decorative dots -->
-  <circle cx="38" cy="120" r="1.2" fill="#F4EFE3"/>
-  <circle cx="60" cy="138" r="1.2" fill="#F4EFE3"/>
-  <circle cx="105" cy="62" r="1.2" fill="#F4EFE3"/>
-  <circle cx="140" cy="28" r="1.2" fill="#F4EFE3"/>
-</svg>
+<div class="screen">
+  <svg class="botanical tl" viewBox="0 0 180 180" fill="none" stroke="#F4EFE3" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M8 172 C 30 140, 25 110, 50 95 C 75 80, 70 55, 95 45 C 120 35, 130 18, 155 10"/>
+    <path d="M155 10 C 150 4, 158 0, 162 4 C 166 0, 174 4, 169 10 C 174 14, 168 22, 162 18 C 156 22, 150 14, 155 10 Z"/>
+    <path d="M162 22 L 162 32"/>
+    <path d="M50 95 C 38 88, 30 95, 28 105 C 38 108, 50 102, 50 95 Z"/>
+    <path d="M50 95 C 60 88, 68 92, 70 102 C 60 104, 50 100, 50 95 Z"/>
+    <path d="M95 45 C 85 40, 78 48, 80 58 C 90 58, 98 52, 95 45 Z"/>
+    <circle cx="72" cy="72" r="2.5"/>
+    <path d="M72 67 L 72 62 M 67 72 L 62 72 M 76 68 L 80 64 M 76 76 L 80 80"/>
+    <circle cx="118" cy="38" r="2"/><circle cx="125" cy="35" r="2"/><circle cx="122" cy="42" r="2"/>
+    <circle cx="38" cy="120" r="1.2" fill="#F4EFE3"/><circle cx="60" cy="138" r="1.2" fill="#F4EFE3"/><circle cx="105" cy="62" r="1.2" fill="#F4EFE3"/><circle cx="140" cy="28" r="1.2" fill="#F4EFE3"/>
+  </svg>
 
-<svg class="botanical tr" viewBox="0 0 180 180" fill="none" stroke="#F4EFE3" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-  <path d="M8 172 C 30 140, 25 110, 50 95 C 75 80, 70 55, 95 45 C 120 35, 130 18, 155 10"/>
-  <path d="M155 10 C 150 4, 158 0, 162 4 C 166 0, 174 4, 169 10 C 174 14, 168 22, 162 18 C 156 22, 150 14, 155 10 Z"/>
-  <path d="M162 22 L 162 32"/>
-  <path d="M50 95 C 38 88, 30 95, 28 105 C 38 108, 50 102, 50 95 Z"/>
-  <path d="M50 95 C 60 88, 68 92, 70 102 C 60 104, 50 100, 50 95 Z"/>
-  <path d="M95 45 C 85 40, 78 48, 80 58 C 90 58, 98 52, 95 45 Z"/>
-  <circle cx="72" cy="72" r="2.5"/>
-  <path d="M72 67 L 72 62 M 67 72 L 62 72 M 76 68 L 80 64 M 76 76 L 80 80"/>
-  <circle cx="118" cy="38" r="2"/>
-  <circle cx="125" cy="35" r="2"/>
-  <circle cx="122" cy="42" r="2"/>
-  <circle cx="38" cy="120" r="1.2" fill="#F4EFE3"/>
-  <circle cx="60" cy="138" r="1.2" fill="#F4EFE3"/>
-  <circle cx="105" cy="62" r="1.2" fill="#F4EFE3"/>
-  <circle cx="140" cy="28" r="1.2" fill="#F4EFE3"/>
-</svg>
+  <svg class="botanical tr" viewBox="0 0 180 180" fill="none" stroke="#F4EFE3" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M8 172 C 30 140, 25 110, 50 95 C 75 80, 70 55, 95 45 C 120 35, 130 18, 155 10"/>
+    <path d="M155 10 C 150 4, 158 0, 162 4 C 166 0, 174 4, 169 10 C 174 14, 168 22, 162 18 C 156 22, 150 14, 155 10 Z"/>
+    <path d="M162 22 L 162 32"/>
+    <path d="M50 95 C 38 88, 30 95, 28 105 C 38 108, 50 102, 50 95 Z"/>
+    <path d="M50 95 C 60 88, 68 92, 70 102 C 60 104, 50 100, 50 95 Z"/>
+    <path d="M95 45 C 85 40, 78 48, 80 58 C 90 58, 98 52, 95 45 Z"/>
+    <circle cx="72" cy="72" r="2.5"/>
+    <path d="M72 67 L 72 62 M 67 72 L 62 72 M 76 68 L 80 64 M 76 76 L 80 80"/>
+    <circle cx="118" cy="38" r="2"/><circle cx="125" cy="35" r="2"/><circle cx="122" cy="42" r="2"/>
+    <circle cx="38" cy="120" r="1.2" fill="#F4EFE3"/><circle cx="60" cy="138" r="1.2" fill="#F4EFE3"/><circle cx="105" cy="62" r="1.2" fill="#F4EFE3"/><circle cx="140" cy="28" r="1.2" fill="#F4EFE3"/>
+  </svg>
 
-<svg class="botanical bl" viewBox="0 0 180 180" fill="none" stroke="#F4EFE3" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-  <path d="M8 172 C 30 140, 25 110, 50 95 C 75 80, 70 55, 95 45 C 120 35, 130 18, 155 10"/>
-  <path d="M155 10 C 150 4, 158 0, 162 4 C 166 0, 174 4, 169 10 C 174 14, 168 22, 162 18 C 156 22, 150 14, 155 10 Z"/>
-  <path d="M162 22 L 162 32"/>
-  <path d="M50 95 C 38 88, 30 95, 28 105 C 38 108, 50 102, 50 95 Z"/>
-  <path d="M50 95 C 60 88, 68 92, 70 102 C 60 104, 50 100, 50 95 Z"/>
-  <path d="M95 45 C 85 40, 78 48, 80 58 C 90 58, 98 52, 95 45 Z"/>
-  <circle cx="72" cy="72" r="2.5"/>
-  <path d="M72 67 L 72 62 M 67 72 L 62 72 M 76 68 L 80 64 M 76 76 L 80 80"/>
-  <circle cx="118" cy="38" r="2"/>
-  <circle cx="125" cy="35" r="2"/>
-  <circle cx="122" cy="42" r="2"/>
-  <circle cx="38" cy="120" r="1.2" fill="#F4EFE3"/>
-  <circle cx="60" cy="138" r="1.2" fill="#F4EFE3"/>
-  <circle cx="105" cy="62" r="1.2" fill="#F4EFE3"/>
-  <circle cx="140" cy="28" r="1.2" fill="#F4EFE3"/>
-</svg>
+  <svg class="botanical bl" viewBox="0 0 180 180" fill="none" stroke="#F4EFE3" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M8 172 C 30 140, 25 110, 50 95 C 75 80, 70 55, 95 45 C 120 35, 130 18, 155 10"/>
+    <path d="M155 10 C 150 4, 158 0, 162 4 C 166 0, 174 4, 169 10 C 174 14, 168 22, 162 18 C 156 22, 150 14, 155 10 Z"/>
+    <path d="M162 22 L 162 32"/>
+    <path d="M50 95 C 38 88, 30 95, 28 105 C 38 108, 50 102, 50 95 Z"/>
+    <path d="M50 95 C 60 88, 68 92, 70 102 C 60 104, 50 100, 50 95 Z"/>
+    <path d="M95 45 C 85 40, 78 48, 80 58 C 90 58, 98 52, 95 45 Z"/>
+    <circle cx="72" cy="72" r="2.5"/>
+    <path d="M72 67 L 72 62 M 67 72 L 62 72 M 76 68 L 80 64 M 76 76 L 80 80"/>
+    <circle cx="118" cy="38" r="2"/><circle cx="125" cy="35" r="2"/><circle cx="122" cy="42" r="2"/>
+    <circle cx="38" cy="120" r="1.2" fill="#F4EFE3"/><circle cx="60" cy="138" r="1.2" fill="#F4EFE3"/><circle cx="105" cy="62" r="1.2" fill="#F4EFE3"/><circle cx="140" cy="28" r="1.2" fill="#F4EFE3"/>
+  </svg>
 
-<svg class="botanical br" viewBox="0 0 180 180" fill="none" stroke="#F4EFE3" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-  <path d="M8 172 C 30 140, 25 110, 50 95 C 75 80, 70 55, 95 45 C 120 35, 130 18, 155 10"/>
-  <path d="M155 10 C 150 4, 158 0, 162 4 C 166 0, 174 4, 169 10 C 174 14, 168 22, 162 18 C 156 22, 150 14, 155 10 Z"/>
-  <path d="M162 22 L 162 32"/>
-  <path d="M50 95 C 38 88, 30 95, 28 105 C 38 108, 50 102, 50 95 Z"/>
-  <path d="M50 95 C 60 88, 68 92, 70 102 C 60 104, 50 100, 50 95 Z"/>
-  <path d="M95 45 C 85 40, 78 48, 80 58 C 90 58, 98 52, 95 45 Z"/>
-  <circle cx="72" cy="72" r="2.5"/>
-  <path d="M72 67 L 72 62 M 67 72 L 62 72 M 76 68 L 80 64 M 76 76 L 80 80"/>
-  <circle cx="118" cy="38" r="2"/>
-  <circle cx="125" cy="35" r="2"/>
-  <circle cx="122" cy="42" r="2"/>
-  <circle cx="38" cy="120" r="1.2" fill="#F4EFE3"/>
-  <circle cx="60" cy="138" r="1.2" fill="#F4EFE3"/>
-  <circle cx="105" cy="62" r="1.2" fill="#F4EFE3"/>
-  <circle cx="140" cy="28" r="1.2" fill="#F4EFE3"/>
-</svg>
+  <svg class="botanical br" viewBox="0 0 180 180" fill="none" stroke="#F4EFE3" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M8 172 C 30 140, 25 110, 50 95 C 75 80, 70 55, 95 45 C 120 35, 130 18, 155 10"/>
+    <path d="M155 10 C 150 4, 158 0, 162 4 C 166 0, 174 4, 169 10 C 174 14, 168 22, 162 18 C 156 22, 150 14, 155 10 Z"/>
+    <path d="M162 22 L 162 32"/>
+    <path d="M50 95 C 38 88, 30 95, 28 105 C 38 108, 50 102, 50 95 Z"/>
+    <path d="M50 95 C 60 88, 68 92, 70 102 C 60 104, 50 100, 50 95 Z"/>
+    <path d="M95 45 C 85 40, 78 48, 80 58 C 90 58, 98 52, 95 45 Z"/>
+    <circle cx="72" cy="72" r="2.5"/>
+    <path d="M72 67 L 72 62 M 67 72 L 62 72 M 76 68 L 80 64 M 76 76 L 80 80"/>
+    <circle cx="118" cy="38" r="2"/><circle cx="125" cy="35" r="2"/><circle cx="122" cy="42" r="2"/>
+    <circle cx="38" cy="120" r="1.2" fill="#F4EFE3"/><circle cx="60" cy="138" r="1.2" fill="#F4EFE3"/><circle cx="105" cy="62" r="1.2" fill="#F4EFE3"/><circle cx="140" cy="28" r="1.2" fill="#F4EFE3"/>
+  </svg>
 
-<main class="container">
-  <div class="ornament">
-    <span class="line"></span>
-    <span class="diamond"></span>
-    <span class="line"></span>
-  </div>
+  <main class="container">
+    <div class="ornament">
+      <span class="line"></span>
+      <span class="diamond"></span>
+      <span class="line"></span>
+    </div>
 
-  <h1 class="brand">Delftsche</h1>
+    <h1 class="brand">Delftsche</h1>
 
-  <div class="ornament ornament-bottom">
-    <span class="line"></span>
-    <span class="diamond"></span>
-    <span class="line"></span>
-  </div>
+    <p class="seo-intro">Hollands kledingmerk geïnspireerd op Delfts blauw. Witte essentials met botanische details voor wie zoekt naar Amsterdam clothing, kleding Amsterdam en Nederlandse mode met karakter.</p>
 
-  <p class="coming-soon" id="comingSoon">Coming Soon</p>
-</main>
+    <div class="ornament ornament-bottom">
+      <span class="line"></span>
+      <span class="diamond"></span>
+      <span class="line"></span>
+    </div>
 
-<script>
-  // Reveal "Coming Soon" after exactly 25 seconds
-  window.addEventListener('load', () => {
-    setTimeout(() => {
-      document.getElementById('comingSoon').classList.add('visible');
-    }, 25000);
-  });
-</script>
+    <p class="coming-soon">Coming Soon</p>
+    <a class="journal-link" href="/blog/" aria-label="Lees het Delftsche journaal">Journal</a>
+  </main>
+</div>
+
+<section class="crawl-content" aria-label="Over Delftsche">
+  <h2>Delfts blauw, vertaald naar moderne kleding</h2>
+  <p>Delftsche maakt rustige witte basisstukken met subtiele Delfts blauwe botanische details. De website bouwt aan vindbaarheid rond <a href="/blog/amsterdam-clothing.html">Amsterdam clothing</a>, <a href="/blog/kleding-amsterdam.html">kleding Amsterdam</a>, <a href="/blog/delfts-blauw-kleding.html">Delfts blauw kleding</a> en <a href="/blog/dutch-clothing-brands.html">Dutch clothing brands</a>.</p>
+  <p><a href="/blog/">Bekijk alle artikelen in het Delftsche Journal</a></p>
+</section>
 
 </body>
 </html>
